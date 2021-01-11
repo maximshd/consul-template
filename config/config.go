@@ -224,7 +224,9 @@ func (c *Config) Merge(o *Config) *Config {
 
 	r.Once = o.Once
 
-	r.BlockQueryWaitTime = o.BlockQueryWaitTime
+	if o.BlockQueryWaitTime != nil {
+		r.BlockQueryWaitTime = o.BlockQueryWaitTime
+	}
 
 	return r
 }
